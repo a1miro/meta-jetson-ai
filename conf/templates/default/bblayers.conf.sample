@@ -1,0 +1,32 @@
+# Version of layers configuration, specific to
+# each defined distro in the repository.
+# Format: ${DISTRO}-<version>
+TD_BBLAYERS_CONF_VERSION = "tegrademo-5"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+
+METALAYERS_DIR="${TOPDIR}../sources"
+TEGRA_METALAYERS_DIR="${TOPDIR}../tegra-demo-distro/layers"
+
+BBLAYERS = " \
+  ${TEGRA_METALAYERS_DIR}/meta \
+  ${TEGRA_METALAYERS_DIR}/meta-tegra \
+  ${TEGRA_METALAYERS_DIR}/meta-oe \
+  ${TEGRA_METALAYERS_DIR}/meta-python \
+  ${TEGRA_METALAYERS_DIR}/meta-networking \
+  ${TEGRA_METALAYERS_DIR}/meta-filesystems \
+  ${TEGRA_METALAYERS_DIR}/meta-virtualization \
+  ${TEGRA_METALAYERS_DIR}/meta-tegra-community \
+  ${TEGRA_METALAYERS_DIR}/meta-tegra-support \
+  ${TEGRA_METALAYERS_DIR}/meta-demo-ci \
+  ${TEGRA_METALAYERS_DIR}/meta-tegrademo \
+  "
+
+BBLAYERS += " \
+  ${METALAYERS_DIR}/meta-clang  \
+  ${METALAYERS_DIR}/meta-clang-revival \
+  ${METALAYERS_DIR}/meta-jetson-ai \
+  ${METALAYERS_DIR}/meta-python-ai \
+"
